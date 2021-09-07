@@ -8,11 +8,11 @@ def battery_check(lower=30, upper=80):
     title = "Battery Notification"
     if battery.percent < lower and not battery.power_plugged:
         notification.notify(title=title, 
-        message=f'Battery lower than 40% (real: {battery.percent}%), please connect charger!', 
+        message=f'Battery lower than {lower}% (real: {battery.percent}%), please connect charger!', 
         timeout=15)
     elif battery.percent > upper and battery.power_plugged:
         notification.notify(title=title, 
-        message=f'Battery more than 80% (real: {battery.percent}%), please disconnect charger!', 
+        message=f'Battery more than {upper}% (real: {battery.percent}%), please disconnect charger!', 
         timeout=15)
     return True
 
